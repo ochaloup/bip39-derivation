@@ -19,7 +19,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         print_pubkey(&seed, derivation_path, &path);
 
         let path = format!("{}'/0'", i);
-        let derivation_path = DerivationPath::from_key_str(&path).unwrap();
+        let derivation_path = DerivationPath::try_from(path.as_str()).unwrap();
         print_pubkey(&seed, derivation_path, &path);
     }
 
